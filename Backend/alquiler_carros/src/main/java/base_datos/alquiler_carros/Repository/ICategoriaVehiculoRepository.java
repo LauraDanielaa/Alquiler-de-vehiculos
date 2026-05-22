@@ -11,4 +11,5 @@ public interface ICategoriaVehiculoRepository extends JpaRepository<CategoriaVeh
 
     Optional<CategoriaVehiculo> findByNombreCategoria(String nombreCategoria);
     boolean existsByNombreCategoria(String nombreCategoria);
+
 }

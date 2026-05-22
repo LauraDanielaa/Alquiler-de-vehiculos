@@ -26,6 +26,7 @@ public class Usuario {
     private String username;
     private String estado;
     private int documento;
+    private String telefono;
     private LocalDate fecha_registro;
 
 
