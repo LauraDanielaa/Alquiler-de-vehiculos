@@ -12,7 +12,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+
 public class Cliente extends Usuario{
     private String direccion;
     private String licencia_conduccion;

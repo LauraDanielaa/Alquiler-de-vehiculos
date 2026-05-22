@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface IMultaRepository extends JpaRepository<Multa, Integer> {
 
-    List<Multa> findByAlquiler_id_alquiler(Long id_alquiler);
+    List<Multa> findByAlquiler_id(Long id_alquiler);
 
     // Total de multas de un alquiler
     @Query("SELECT SUM(m.monto) FROM Multa m WHERE m.alquiler.id = :id_alquiler")

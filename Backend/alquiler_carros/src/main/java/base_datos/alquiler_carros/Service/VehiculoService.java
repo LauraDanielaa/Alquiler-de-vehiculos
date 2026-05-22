@@ -69,7 +69,7 @@ public class VehiculoService implements IVehiculoService {
 
     @Override
     public List<VehiculoResponseDTO> listarPorCategoria(Long idCategoria) {
-        return vehiculoRepository.findByCategoria_IdCategoria(idCategoria)
+        return vehiculoRepository.findByCategoria_Id(idCategoria)
                 .stream()
                 .map(Mapper::toDTO)
                 .toList();

@@ -99,7 +99,7 @@ public class AuthService {
         Administrador admin = new Administrador();
         llenarDatosBase(admin, req);
         admin.setDocumento(req.getDocumento());
-        admin.setNivel_acceso(req.getNivelAcceso());
+        admin.setNivelAcceso(req.getNivelAcceso());
         adminRepository.save(admin);
         return jwtUtil.generateToken(admin.getUsername(), "ADMIN");
     }

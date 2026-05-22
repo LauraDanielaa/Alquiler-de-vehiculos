@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface IEmpleadoRepository extends JpaRepository<Empleado, Long> {
 
-    List<Empleado> findBySucursal_IdSucursal(Long idSucursal);
+    List<Empleado> findBySucursal_Id(Long idSucursal);
     List<Empleado> findByCargo(String cargo);
     Optional<Empleado> findByDocumento(Integer documento);
     boolean existsByDocumento(Integer documento);

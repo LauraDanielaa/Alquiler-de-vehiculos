@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public interface IMantenimientoRepository extends JpaRepository<Mantenimiento, Long> {
 
-    List<Mantenimiento> findByVehiculo_IdVehiculo(Integer id_vehiculo);
+    List<Mantenimiento> findByVehiculo_Id(Integer id_vehiculo);
     List<Mantenimiento> findByFechaBetween(LocalDate fecha_inicio, LocalDate fecha_fin);
 
     // Costo total de mantenimientos de un vehículo

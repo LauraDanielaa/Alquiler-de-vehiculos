@@ -13,11 +13,11 @@ public interface IVehiculoRepository extends JpaRepository<Vehiculo, Integer> {
     Optional<Vehiculo> findByPlaca(String placa);
     boolean existsByPlaca(String placa);
     List<Vehiculo> findByEstado(String estado);
-    List<Vehiculo> findByCategoria_IdCategoria(Long idCategoria);
-    List<Vehiculo> findBySucursal_IdSucursal(Long idSucursal);
+    List<Vehiculo> findByCategoria_Id(Long idCategoria);
+    List<Vehiculo> findBySucursal_Id(Long idSucursal);
     List<Vehiculo> findByMarca(String marca);
 
     // Vehículos disponibles en una sucursal por categoría
-    List<Vehiculo> findByEstadoAndSucursal_IdSucursalAndCategoria_IdCategoria(
+    List<Vehiculo> findByEstadoAndSucursal_IdAndCategoria_Id(
             String estado, Long idSucursal, Integer idCategoria);
 }

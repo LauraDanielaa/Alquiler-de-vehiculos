@@ -12,8 +12,8 @@ import java.util.List;
 @Repository
 public interface IAlquilerRepository extends JpaRepository<Alquiler, Long> {
 
-    List<Alquiler> findByCliente_IdUsuario(Long id_usuario);
-    List<Alquiler> findByVehiculo_IdVehiculo(Long id_vehiculo);
+    List<Alquiler> findByCliente_Id(Long id_usuario);
+    List<Alquiler> findByVehiculo_Id(Long id_vehiculo);
     List<Alquiler> findByEstado(String estado);
 
     // Alquileres activos de un vehículo en un rango de fechas

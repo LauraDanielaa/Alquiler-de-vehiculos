@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface IPagoRepository extends JpaRepository<Pago,Long> {
 
-    List<Pago> findByAlquiler_IdAlquiler(Long id_alquiler);
+    List<Pago> findByAlquiler_Id(Long id_alquiler);
     List<Pago> findByEstado(String estado);
     List<Pago> findByMetodoPago(String metodoPago);
 

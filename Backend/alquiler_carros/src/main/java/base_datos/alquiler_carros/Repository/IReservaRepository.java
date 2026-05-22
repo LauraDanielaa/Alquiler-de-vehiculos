@@ -12,8 +12,8 @@ import java.util.List;
 @Repository
 public interface IReservaRepository extends JpaRepository<Reserva, Long> {
 
-    List<Reserva> findByCliente_IdUsuario(Long id_usuario);
-    List<Reserva> findByVehiculo_IdVehiculo(Long id_vehiculo);
+    List<Reserva> findByCliente_Id(Long id_usuario);
+    List<Reserva> findByVehiculo_Id(Long id_vehiculo);
     List<Reserva> findByEstado(String estado);
 
     // Reservas activas de un vehículo en un rango de fechas
