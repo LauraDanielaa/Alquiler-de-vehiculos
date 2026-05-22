@@ -14,6 +14,7 @@ El repositorio contiene los scripts SQL necesarios para la creación y configura
 - PL/pgSQL
 - API REST
 - Git y GitHub
+- React
 
 ##  Contenido del repositorio
 
