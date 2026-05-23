@@ -1,7 +1,7 @@
-import Register from "./pages/registro_usuario.jsx";
+import Home from "./pages/pag_principal.jsx";
 
 function App() {
-  return <Register />;
+  return <Home />;
 }
 
 export default App;

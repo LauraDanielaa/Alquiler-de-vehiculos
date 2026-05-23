@@ -1,0 +1,289 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0f0f0f;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.home-container {
+  width: 100%;
+  min-height: 100vh;
+  background: #0f0f0f;
+  color: white;
+}
+
+/* ================= HEADER ================= */
+
+.header {
+  width: 100%;
+  height: 90px;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 80px;
+  position: fixed;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #d4af37;
+  letter-spacing: 2px;
+}
+
+nav {
+  display: flex;
+  gap: 35px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #f1f1f1;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+nav a:hover {
+  color: #d4af37;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.login-btn {
+  background: transparent;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  padding: 10px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background: #d4af37;
+  color: #111;
+}
+
+.register-btn {
+  background: #d4af37;
+  color: #111;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  background: #f1cc57;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2083");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 100px;
+}
+
+.hero-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  top: 0;
+  left: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+}
+
+.hero-content h1 {
+  font-size: 75px;
+  margin-bottom: 25px;
+  line-height: 1.1;
+}
+
+.hero-content p {
+  font-size: 20px;
+  color: #d6d6d6;
+  margin-bottom: 35px;
+  line-height: 1.7;
+}
+
+.hero-content button {
+  background: #d4af37;
+  border: none;
+  color: #111;
+  padding: 16px 35px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero-content button:hover {
+  background: #f1cc57;
+  transform: translateY(-3px);
+}
+
+/* ================= VEHICULOS ================= */
+
+.cars-section {
+  padding: 100px 80px;
+}
+
+.cars-section h2 {
+  font-size: 45px;
+  margin-bottom: 50px;
+  text-align: center;
+  color: #d4af37;
+}
+
+.cars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+}
+
+.car-card {
+  background: #181818;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: 0.4s;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.car-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(212,175,55,0.15);
+}
+
+.car-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.car-info {
+  padding: 25px;
+}
+
+.category {
+  background: rgba(212,175,55,0.15);
+  color: #d4af37;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+}
+
+.car-info h3 {
+  margin-top: 20px;
+  font-size: 26px;
+}
+
+.car-info p {
+  margin: 18px 0;
+  color: #b8b8b8;
+  line-height: 1.6;
+}
+
+.card-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.info-btn {
+  flex: 1;
+  background: transparent;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.info-btn:hover {
+  background: #d4af37;
+  color: #111;
+}
+
+.rent-btn {
+  flex: 1;
+  background: #d4af37;
+  border: none;
+  color: #111;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.rent-btn:hover {
+  background: #f1cc57;
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+  width: 100%;
+  padding: 30px;
+  background: #090909;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer p {
+  color: #b8b8b8;
+  font-size: 15px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+  .header {
+    padding: 0 30px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .hero {
+    padding: 0 30px;
+  }
+
+  .hero-content h1 {
+    font-size: 50px;
+  }
+
+  .cars-section {
+    padding: 80px 25px;
+  }
+
+}
