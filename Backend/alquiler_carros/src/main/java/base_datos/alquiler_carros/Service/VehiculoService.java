@@ -5,15 +5,14 @@ import base_datos.alquiler_carros.Models.Dto.Request.VehiculoRequestDTO;
 import base_datos.alquiler_carros.Models.Dto.Response.VehiculoResponseDTO;
 import base_datos.alquiler_carros.Models.Sucursal;
 import base_datos.alquiler_carros.Models.Vehiculo;
-import base_datos.alquiler_carros.Repository.ICategoriaVehiculoRepository;
-import base_datos.alquiler_carros.Repository.ISucursalRepository;
-import base_datos.alquiler_carros.Repository.IVehiculoRepository;
+import base_datos.alquiler_carros.Repository.*;
 import base_datos.alquiler_carros.Service.Interfaces.IVehiculoService;
 import base_datos.alquiler_carros.Util.Mapper;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -23,6 +22,8 @@ public class VehiculoService implements IVehiculoService {
     private final IVehiculoRepository vehiculoRepository;
     private final ICategoriaVehiculoRepository categoriaRepository;
     private final ISucursalRepository sucursalRepository;
+    private final IReservaRepository reservaRepository;
+    private final IAlquilerRepository alquilerRepository;
 
     @Override
     @Transactional
@@ -41,7 +42,7 @@ public class VehiculoService implements IVehiculoService {
     }
 
     @Override
-    public VehiculoResponseDTO buscarPorId(Integer id) {
+    public VehiculoResponseDTO buscarPorId(Long id) {
         return Mapper.toDTO(findOrThrow(id));
     }
 
@@ -77,7 +78,7 @@ public class VehiculoService implements IVehiculoService {
 
     @Override
     @Transactional
-    public VehiculoResponseDTO actualizar(Integer id, VehiculoRequestDTO dto) {
+    public VehiculoResponseDTO actualizar(Long id, VehiculoRequestDTO dto) {
         Vehiculo vehiculo = findOrThrow(id);
 
         CategoriaVehiculo categoria = categoriaRepository.findById(dto.getIdCategoria())
@@ -102,12 +103,29 @@ public class VehiculoService implements IVehiculoService {
 
     @Override
     @Transactional
-    public void eliminar(Integer id) {
+    public void eliminar(Long id) {
         vehiculoRepository.delete(findOrThrow(id));
     }
 
-    private Vehiculo findOrThrow(Integer id) {
+    private Vehiculo findOrThrow(Long id) {
         return vehiculoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Vehículo no encontrado con id: " + id));
+    }
+    @Override
+    public List<VehiculoResponseDTO> buscarDisponibles(LocalDate fechaInicio, LocalDate fechaFin) {
+        // Trae todos los vehículos disponibles
+        List<Vehiculo> disponibles = vehiculoRepository.findByEstado("DISPONIBLE");
+
+        // Filtra los que no tienen reservas ni alquileres en ese rango
+        return disponibles.stream()
+                .filter(v ->
+                        reservaRepository
+                        .findReservasActivasEnRango(v.getId(), fechaInicio, fechaFin)
+                        .isEmpty())
+                .filter(v -> alquilerRepository
+                        .findAlquileresActivosEnRango(v.getId(), fechaInicio, fechaFin)
+                        .isEmpty())
+                .map(Mapper::toDTO)
+                .toList();
     }
 }

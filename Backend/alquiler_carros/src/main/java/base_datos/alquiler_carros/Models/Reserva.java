@@ -6,7 +6,9 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "Reserva")
+@Builder
 @Getter @Setter @NoArgsConstructor
+@AllArgsConstructor
 public class Reserva {
 
     @Id

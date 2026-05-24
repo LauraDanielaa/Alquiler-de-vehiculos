@@ -1,0 +1,32 @@
+package base_datos.alquiler_carros.Models.Dto.Response;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class ReservaResponseDTO {
+
+    private Long idReserva;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
+    private String estado;
+    private Long idVehiculo;
+    private String placaVehiculo;
+    private String marcaVehiculo;
+    private String modeloVehiculo;
+    private BigDecimal precioDia;
+    private BigDecimal totalEstimado;
+    private Long idCliente;
+    private String nombreCliente;
+    private String apellidoCliente;
+}

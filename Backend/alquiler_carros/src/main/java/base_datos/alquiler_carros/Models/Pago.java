@@ -8,6 +8,8 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "Pago")
 @Getter @Setter @NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class Pago {
 
     @Id
@@ -17,6 +19,7 @@ public class Pago {
     private LocalDate fecha_pago;
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal monto;
+    @Column(name="metodo_pago")
     private String metodoPago;
     private String estado;
 

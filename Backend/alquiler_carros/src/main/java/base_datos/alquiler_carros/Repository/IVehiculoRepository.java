@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface IVehiculoRepository extends JpaRepository<Vehiculo, Integer> {
+public interface IVehiculoRepository extends JpaRepository<Vehiculo, Long> {
 
     Optional<Vehiculo> findByPlaca(String placa);
     boolean existsByPlaca(String placa);
@@ -19,5 +19,5 @@ public interface IVehiculoRepository extends JpaRepository<Vehiculo, Integer> {
 
     // Vehículos disponibles en una sucursal por categoría
     List<Vehiculo> findByEstadoAndSucursal_IdAndCategoria_Id(
-            String estado, Long idSucursal, Integer idCategoria);
+            String estado, Long idSucursal, Long idCategoria);
 }

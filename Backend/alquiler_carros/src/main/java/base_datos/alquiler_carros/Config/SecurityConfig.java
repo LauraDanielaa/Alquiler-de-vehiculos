@@ -4,6 +4,7 @@ import base_datos.alquiler_carros.Service.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -31,17 +32,27 @@ public class SecurityConfig {
                         // públicas
                         .requestMatchers("/api/auth/**").permitAll()
 
+                        // GET vehiculos — todos pueden ver
+                        .requestMatchers(HttpMethod.GET, "/api/vehiculos/**").hasAnyRole("ADMIN", "EMPLEADO", "CLIENTE")
+
+                        // POST, PUT, DELETE vehiculos — solo ADMIN y EMPLEADO
+                        .requestMatchers(HttpMethod.POST, "/api/vehiculos/**").hasAnyRole("ADMIN", "EMPLEADO")
+                        .requestMatchers(HttpMethod.PUT, "/api/vehiculos/**").hasAnyRole("ADMIN", "EMPLEADO")
+                        .requestMatchers(HttpMethod.DELETE, "/api/vehiculos/**").hasAnyRole("ADMIN", "EMPLEADO")
+
                         // solo ADMIN
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/empleados/**").hasRole("ADMIN")
 
                         // ADMIN y EMPLEADO
-                        .requestMatchers("/api/vehiculos/**").hasAnyRole("ADMIN", "EMPLEADO")
                         .requestMatchers("/api/alquileres/**").hasAnyRole("ADMIN", "EMPLEADO")
                         .requestMatchers("/api/mantenimientos/**").hasAnyRole("ADMIN", "EMPLEADO")
 
-                        // CLIENTE (y superiores)
+                        // CLIENTE y superiores
                         .requestMatchers("/api/reservas/**").hasAnyRole("ADMIN", "EMPLEADO", "CLIENTE")
+                        .requestMatchers("/api/pagos/**").hasAnyRole("ADMIN", "EMPLEADO", "CLIENTE")
+                        .requestMatchers("/api/categorias/**").hasAnyRole("ADMIN", "EMPLEADO", "CLIENTE")
+                        .requestMatchers("/api/sucursales/**").hasAnyRole("ADMIN", "EMPLEADO", "CLIENTE")
 
                         .anyRequest().authenticated()
                 )

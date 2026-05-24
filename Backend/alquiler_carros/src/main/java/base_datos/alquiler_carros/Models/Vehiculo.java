@@ -41,4 +41,5 @@ public class Vehiculo {
     private List<Reserva> reservas;
     @OneToMany(mappedBy = "vehiculo", fetch = FetchType.LAZY)
     private List<Mantenimiento> mantenimientos;
+
 }

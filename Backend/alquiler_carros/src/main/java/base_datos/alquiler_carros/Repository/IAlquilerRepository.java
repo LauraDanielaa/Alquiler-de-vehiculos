@@ -12,20 +12,30 @@ import java.util.List;
 @Repository
 public interface IAlquilerRepository extends JpaRepository<Alquiler, Long> {
 
-    List<Alquiler> findByCliente_Id(Long id_usuario);
-    List<Alquiler> findByVehiculo_Id(Long id_vehiculo);
+    List<Alquiler> findByCliente_Id(Long idCliente);
+    List<Alquiler> findByVehiculo_Id(Long idVehiculo);
     List<Alquiler> findByEstado(String estado);
+
+    // Cancelación automática
+    @Query("""
+        SELECT a FROM Alquiler a
+        WHERE a.estado = :estado
+        AND a.fecha_inicio <= :fecha
+    """)
+    List<Alquiler> findAlquileresPendientesPagoVencidos(
+            @Param("estado") String estado,
+            @Param("fecha") LocalDate fecha);
 
     // Alquileres activos de un vehículo en un rango de fechas
     @Query("""
         SELECT a FROM Alquiler a
         WHERE a.vehiculo.id = :id_vehiculo
-        AND a.estado != 'CANCELADO'
+        AND a.estado NOT IN ('CANCELADO', 'FINALIZADO')
         AND a.fecha_inicio <= :fecha_fin
         AND a.fecha_fin >= :fecha_inicio
     """)
     List<Alquiler> findAlquileresActivosEnRango(
-            @Param("idVehiculo") Integer id_vehiculo,
-            @Param("fechaInicio") LocalDate fecha_inicio,
-            @Param("fechaFin") LocalDate fecha_fin);
+            @Param("id_vehiculo") Long id_vehiculo,
+            @Param("fecha_inicio") LocalDate fecha_inicio,
+            @Param("fecha_fin") LocalDate fecha_fin);
 }

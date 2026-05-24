@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -25,10 +26,15 @@ public class VehiculoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<VehiculoResponseDTO> buscarPorId(@PathVariable Integer id) {
+    public ResponseEntity<VehiculoResponseDTO> buscarPorId(@PathVariable Long id) {
         return ResponseEntity.ok(vehiculoService.buscarPorId(id));
     }
-
+    @GetMapping("/disponibles")
+    public ResponseEntity<List<VehiculoResponseDTO>> buscarDisponibles(
+            @RequestParam LocalDate fechaInicio,
+            @RequestParam LocalDate fechaFin) {
+        return ResponseEntity.ok(vehiculoService.buscarDisponibles(fechaInicio, fechaFin));
+    }
     @GetMapping("/placa/{placa}")
     public ResponseEntity<VehiculoResponseDTO> buscarPorPlaca(@PathVariable String placa) {
         return ResponseEntity.ok(vehiculoService.buscarPorPlaca(placa));
@@ -52,13 +58,13 @@ public class VehiculoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<VehiculoResponseDTO> actualizar(
-            @PathVariable Integer id,
+            @PathVariable Long id,
             @RequestBody @Valid VehiculoRequestDTO dto) {
         return ResponseEntity.ok(vehiculoService.actualizar(id, dto));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
+    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
         vehiculoService.eliminar(id);
         return ResponseEntity.noContent().build();
     }

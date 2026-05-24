@@ -13,10 +13,10 @@ import java.util.List;
 @Repository
 public interface IMantenimientoRepository extends JpaRepository<Mantenimiento, Long> {
 
-    List<Mantenimiento> findByVehiculo_Id(Integer id_vehiculo);
+    List<Mantenimiento> findByVehiculo_Id(Long id_vehiculo);
     List<Mantenimiento> findByFechaBetween(LocalDate fecha_inicio, LocalDate fecha_fin);
 
     // Costo total de mantenimientos de un vehículo
     @Query("SELECT SUM(m.costo) FROM Mantenimiento m WHERE m.vehiculo.id = :id_vehiculo")
-    BigDecimal sumCostoByVehiculo(@Param("id_vehiculo") Integer id_vehiculo);
+    BigDecimal sumCostoByVehiculo(@Param("id_vehiculo") Long id_vehiculo);
 }

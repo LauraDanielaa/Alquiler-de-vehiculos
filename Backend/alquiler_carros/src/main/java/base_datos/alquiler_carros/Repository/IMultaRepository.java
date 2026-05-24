@@ -10,11 +10,11 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Repository
-public interface IMultaRepository extends JpaRepository<Multa, Integer> {
+public interface IMultaRepository extends JpaRepository<Multa, Long> {
 
     List<Multa> findByAlquiler_id(Long id_alquiler);
 
     // Total de multas de un alquiler
     @Query("SELECT SUM(m.monto) FROM Multa m WHERE m.alquiler.id = :id_alquiler")
-    BigDecimal sumMontoByAlquiler(@Param("id_alquiler") Integer id_alquiler);
+    BigDecimal sumMontoByAlquiler(@Param("id_alquiler") Long id_alquiler);
 }
