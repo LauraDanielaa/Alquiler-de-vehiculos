@@ -1,7 +1,7 @@
-import Login from "./pages/ingreso_usuario.jsx";
+import Home from "./pages/pag_principal_us.jsx";
 
 function App() {
-  return <Login />;
+  return <Home />;
 }
 
 export default App;
