@@ -18,10 +18,10 @@ function Login() {
           <form>
 
             <div className="input-group">
-              <label>Correo Electrónico</label>
+              <label>Username</label>
               <input
-                type="email"
-                placeholder="correo@email.com"
+                type="text"
+                placeholder="nombre de usuario"
               />
             </div>
 

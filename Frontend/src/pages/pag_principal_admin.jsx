@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "./pag_principal_us.css";
+import "./pag_principal_admin.css";
 
-function Home() {
+function Home1() {
 
   const carros = [
     {
@@ -110,8 +110,15 @@ function Home() {
         </div>
 
         <nav>
-          <a href="#">Reservas realizadas</a>
-          <a href="#">Pagos realizados</a>
+          <a href="#">Registrar cliente</a>
+          <a href="#">Registrar empleado</a>
+          <a href="#">Registrar administrador</a>
+          <a href="#">Registrar vehículo</a>
+          <a href="#">Crear sucursal</a>
+          <a href="#">Crear vehículo</a>
+          <a href="#">Crear multa</a>
+          <a href="#">Crear mantenimiento</a>
+          <a href="#">Buscar alquiler</a>
           <a href="#">Mi perfil</a>
         </nav>
 
@@ -214,7 +221,7 @@ function Home() {
                   </button>
 
                   <button className="rent-btn">
-                    Reservar
+                    Alquilar
                   </button>
 
                 </div>
@@ -227,7 +234,9 @@ function Home() {
         </div>
 
       </section>
-      
+
+      {/* MODAL */}
+
       {/* MODAL */}
 
 {selectedCar && (
@@ -314,7 +323,7 @@ function Home() {
         <div className="modal-buttons">
 
           <button className="rent-btn modal-rent-btn">
-            Reservar Vehículo
+            Alquilar Vehículo
           </button>
 
           <button
@@ -346,4 +355,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Home1;

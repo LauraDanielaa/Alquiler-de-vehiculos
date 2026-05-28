@@ -1,7 +1,7 @@
-import Home from "./pages/pag_principal_us.jsx";
+import Reservas from "./pages/reserva_reali_us.jsx";
 
 function App() {
-  return <Home />;
+  return <Reservas/>;
 }
 
 export default App;
