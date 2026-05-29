@@ -1,6 +1,6 @@
-import "./registro_usuario.css";
+import "./registrar_cliente.css";
 
-function Register() {
+function RegistrarCliente() {
   return (
     <div className="register-container">
 
@@ -18,18 +18,28 @@ function Register() {
           <form>
 
             <div className="input-group">
-              <label>Nombre Completo</label>
-              <input type="text" placeholder="Ingresa tu nombre" />
+              <label>Nombres</label>
+              <input type="text" placeholder="Ingresa tus nombres" />
             </div>
 
             <div className="input-group">
-              <label>Correo Electrónico</label>
-              <input type="email" placeholder="correo@email.com" />
+              <label>Apellidos</label>
+              <input type="text" placeholder="Ingresa tus apellidos" />
             </div>
 
             <div className="input-group">
-              <label>Contraseña</label>
-              <input type="password" placeholder="********" />
+              <label>Usuario</label>
+              <input type="text" placeholder="Ingresa tu nombre de usuario" />
+            </div>
+
+            <div className="input-group">
+              <label>Documento de Identidad</label>
+              <input type="text" placeholder="Ingresa tu número de documento" />
+            </div>
+
+             <div className="input-group">
+              <label>Licencia de conducción</label>
+              <input type="text" placeholder="Número de licencia" />
             </div>
 
             <div className="input-group">
@@ -40,6 +50,16 @@ function Register() {
             <div className="input-group">
               <label>Dirección</label>
               <input type="text" placeholder="Tu dirección" />
+            </div>
+
+            <div className="input-group">
+              <label>Correo Electrónico</label>
+              <input type="email" placeholder="correo@email.com" />
+            </div>
+
+            <div className="input-group">
+              <label>Contraseña</label>
+              <input type="password" placeholder="********" />
             </div>
 
             <button type="submit">
@@ -73,4 +93,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default RegistrarCliente;

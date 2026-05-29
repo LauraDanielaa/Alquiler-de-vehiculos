@@ -1,7 +1,7 @@
-import Reservas from "./pages/reserva_reali_us.jsx";
+import Sucursales from "./pages/crear_sucursal.jsx";
 
 function App() {
-  return <Reservas/>;
+  return <Sucursales/>;
 }
 
 export default App;

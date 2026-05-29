@@ -1,6 +1,6 @@
-import "./ingreso_usuario.css";
+import "./login_empleado.css";
 
-function Login() {
+function LoginEmpleado() {
   return (
     <div className="register-container">
 
@@ -12,7 +12,7 @@ function Login() {
           <h1>Iniciar Sesión</h1>
 
           <p className="subtitle">
-            Accede a Sterling Drive con tu correo y contraseña
+            ¡Hola de nuevo!
           </p>
 
           <form>
@@ -84,4 +84,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginEmpleado;
