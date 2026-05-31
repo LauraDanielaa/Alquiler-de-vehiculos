@@ -1,0 +1,338 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0f0f0f;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.multas-container {
+  width: 100%;
+  min-height: 100vh;
+
+  background: #0f0f0f;
+
+  color: white;
+}
+
+/* ================= HEADER ================= */
+
+.top-header {
+  width: 100%;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 22px 8%;
+
+  background: rgba(0,0,0,0.75);
+
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(212,175,55,0.08);
+}
+
+.back-button {
+  color: #d4af37;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.back-button:hover {
+  color: #f1cc57;
+}
+
+.logo {
+  color: #d4af37;
+
+  font-size: 28px;
+}
+
+.profile-circle {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  background: #d4af37;
+
+  color: #111;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: bold;
+}
+
+/* ================= HERO ================= */
+
+.hero-section {
+  width: 100%;
+  height: 50vh;
+
+  position: relative;
+
+  background-image: url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0,0,0,0.72);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 70px;
+
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 20px;
+
+  color: #d8d8d8;
+}
+
+/* ================= BUSCADOR ================= */
+
+.search-section {
+  width: 100%;
+
+  padding: 50px 8%;
+}
+
+.search-box {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.search-box input {
+  width: 450px;
+
+  padding: 18px 20px;
+
+  border-radius: 14px;
+
+  border: none;
+
+  outline: none;
+
+  background: #181818;
+
+  color: white;
+
+  border: 1px solid rgba(212,175,55,0.15);
+
+  font-size: 16px;
+}
+
+.search-box input:focus {
+  border: 1px solid #d4af37;
+}
+
+/* ================= CARDS ================= */
+
+.cards-section {
+  width: 100%;
+
+  padding: 0 8% 80px;
+}
+
+.cards-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(340px,1fr));
+
+  gap: 30px;
+}
+
+/* ================= CARD ================= */
+
+.multa-card {
+  background: #181818;
+
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(212,175,55,0.08);
+
+  box-shadow:
+    0 0 18px rgba(212,175,55,0.05),
+    0 10px 30px rgba(0,0,0,0.5);
+
+  transition: 0.3s;
+}
+
+.multa-card:hover {
+  transform: translateY(-6px);
+}
+
+.multa-card img {
+  width: 100%;
+  height: 240px;
+
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 25px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-bottom: 15px;
+}
+
+.status {
+  background: rgba(212,175,55,0.15);
+
+  color: #d4af37;
+
+  padding: 8px 14px;
+
+  border-radius: 30px;
+
+  font-size: 14px;
+
+  font-weight: bold;
+}
+
+.card-content h2 {
+  font-size: 28px;
+
+  margin-bottom: 12px;
+}
+
+.cliente {
+  color: #d8d8d8;
+
+  margin-bottom: 25px;
+}
+
+/* ================= DETAILS ================= */
+
+.details-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2,1fr);
+
+  gap: 18px;
+
+  margin-bottom: 25px;
+}
+
+.details-grid div {
+  background: #222;
+
+  padding: 15px;
+
+  border-radius: 14px;
+}
+
+.details-grid strong {
+  display: block;
+
+  color: #d4af37;
+
+  margin-bottom: 10px;
+}
+
+.details-grid span {
+  color: #e0e0e0;
+}
+
+/* ================= DESCRIPCION ================= */
+
+.descripcion-box {
+  background: #222;
+
+  padding: 18px;
+
+  border-radius: 16px;
+}
+
+.descripcion-box strong {
+  color: #d4af37;
+
+  display: block;
+
+  margin-bottom: 12px;
+}
+
+.descripcion-box p {
+  color: #d8d8d8;
+
+  line-height: 1.6;
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+  width: 100%;
+
+  padding: 35px;
+
+  text-align: center;
+
+  background: #151515;
+
+  border-top: 1px solid rgba(212,175,55,0.08);
+}
+
+.footer p {
+  color: #cfcfcf;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+  .hero-content h1 {
+    font-size: 48px;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

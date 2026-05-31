@@ -1,7 +1,7 @@
-import Pagos from "./pages/todos_pagos.jsx";
+import GestionUsuarios from "./pages/listar_stakeholders.jsx";
 
 function App() {
-  return <Pagos/>;
+  return <GestionUsuarios/>;
 }
 
 export default App;
