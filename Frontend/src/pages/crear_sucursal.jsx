@@ -1,6 +1,10 @@
+import { useState } from "react";
 import "./crear_sucursal.css";
 
 function Sucursales() {
+const [selectedBranch, setSelectedBranch] = useState(null);
+const [searchId, setSearchId] = useState("");
+const [filteredBranches, setFilteredBranches] = useState([]);
 
   const sucursales = [
     {
@@ -27,10 +31,52 @@ function Sucursales() {
       direccion: "Calle 5 # 80-15"
     }
   ];
+if (filteredBranches.length === 0 && searchId === "") {
+  filteredBranches.push(...sucursales);
+}
+  const handleSearch = () => {
+
+  if (searchId === "") {
+    setFilteredBranches(sucursales);
+    return;
+  }
+
+  const result = sucursales.filter(
+    (sucursal) => sucursal.id === Number(searchId)
+  );
+
+  setFilteredBranches(result);
+};
+if (filteredBranches.length === 0 && searchId === "") {
+  filteredBranches.push(...sucursales);
+}
 
   return (
 
     <div className="branch-container">
+    {/* HEADER */}
+
+    <header className="top-header">
+
+      <div className="back-button">
+
+        ← Volver
+
+      </div>
+
+      <div className="profile-section">
+
+        <div className="profile-circle">
+          A
+        </div>
+
+        <span>
+          Administrador
+        </span>
+
+      </div>
+
+    </header>
 
       {/* HEADER */}
 
@@ -125,9 +171,11 @@ function Sucursales() {
             placeholder="Ingrese ID de la sucursal"
             min="1"
             max="5"
+            value={searchId}
+            onChange={(e) => setSearchId(e.target.value)}
           />
 
-          <button>
+          <button onClick={handleSearch}>
             Buscar
           </button>
 
@@ -145,7 +193,7 @@ function Sucursales() {
 
         <div className="branches-grid">
 
-          {sucursales.map((sucursal) => (
+          {filteredBranches.map((sucursal) => (
 
             <div className="branch-card" key={sucursal.id}>
 
@@ -177,11 +225,10 @@ function Sucursales() {
 
               <div className="branch-buttons">
 
-                <button className="info-btn">
-                  Ver información
-                </button>
-
-                <button className="update-btn">
+                <button
+                  className="update-btn"
+                  onClick={() => setSelectedBranch(sucursal)}
+                >
                   Actualizar
                 </button>
 
@@ -194,7 +241,96 @@ function Sucursales() {
         </div>
 
       </div>
+      {/* MODAL ACTUALIZAR */}
 
+{selectedBranch && (
+
+  <div
+    className="modal-overlay"
+    onClick={() => setSelectedBranch(null)}
+  >
+
+    <div
+      className="update-modal"
+      onClick={(e) => e.stopPropagation()}
+    >
+
+      <button
+        className="close-modal"
+        onClick={() => setSelectedBranch(null)}
+      >
+        ✕
+      </button>
+
+      <h2>
+        Actualizar Sucursal
+      </h2>
+
+      <p>
+        Modifica la información de la sucursal.
+      </p>
+
+      <form className="update-form">
+
+        <div className="input-group">
+          <label>Nombre</label>
+
+          <input
+            type="text"
+            defaultValue={selectedBranch.nombre}
+          />
+        </div>
+
+        <div className="input-group">
+          <label>Ciudad</label>
+
+          <input
+            type="text"
+            defaultValue={selectedBranch.ciudad}
+          />
+        </div>
+
+        <div className="input-group">
+          <label>Teléfono</label>
+
+          <input
+            type="text"
+            defaultValue={selectedBranch.telefono}
+          />
+        </div>
+
+        <div className="input-group">
+          <label>Dirección</label>
+
+          <input
+            type="text"
+            defaultValue={selectedBranch.direccion}
+          />
+        </div>
+
+        <div className="modal-buttons">
+
+          <button className="save-btn">
+            Guardar Cambios
+          </button>
+
+          <button
+            type="button"
+            className="cancel-btn"
+            onClick={() => setSelectedBranch(null)}
+          >
+            Cancelar
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+)}
     </div>
   );
 }

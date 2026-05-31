@@ -1,7 +1,7 @@
-import Sucursales from "./pages/crear_sucursal.jsx";
+import Pagos from "./pages/todos_pagos.jsx";
 
 function App() {
-  return <Sucursales/>;
+  return <Pagos/>;
 }
 
 export default App;

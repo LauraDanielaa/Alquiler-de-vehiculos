@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "./pag_principal_us.css";
+import "./pag_principal_emple.css";
 
-function Home() {
+function Home2() {
 
   const carros = [
     {
@@ -128,9 +128,10 @@ function Home() {
         </div>
 
         <nav>
-          <a href="#">Mis reservas</a>
-          <a href="#">Mis alquileres</a>
-          <a href="#">Pagos realizados</a>
+          <a href="#">Registrar Cliente</a>
+          <a href="#">Reservas</a>
+          <a href="#">Alquileres</a>
+          <a href="#">Crear multa</a>
           <a href="#">Mi perfil</a>
         </nav>
 
@@ -419,4 +420,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Home2;

@@ -346,3 +346,171 @@ body {
   }
 
 }
+
+/* ================= HEADER ================= */
+
+.top-header {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 40px;
+}
+
+.back-button {
+  color: #d4af37;
+
+  cursor: pointer;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+.back-button:hover {
+  transform: translateX(-4px);
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-circle {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  background: #d4af37;
+
+  color: #111;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+}
+
+/* ================= MODAL ================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,0.8);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 5000;
+
+  padding: 20px;
+}
+
+.update-modal {
+  width: 100%;
+  max-width: 650px;
+
+  background: #181818;
+
+  padding: 40px;
+
+  border-radius: 22px;
+
+  position: relative;
+
+  border: 1px solid rgba(212,175,55,0.12);
+
+  box-shadow:
+    0 0 20px rgba(212,175,55,0.12),
+    0 10px 40px rgba(0,0,0,0.6);
+}
+
+.update-modal h2 {
+  font-size: 38px;
+  color: #d4af37;
+  margin-bottom: 12px;
+}
+
+.update-modal p {
+  color: #b8b8b8;
+  margin-bottom: 30px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+
+  border: none;
+
+  background: #d4af37;
+
+  color: #111;
+
+  cursor: pointer;
+
+  font-weight: bold;
+}
+
+.update-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* BOTONES MODAL */
+
+.modal-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.save-btn,
+.cancel-btn {
+  flex: 1;
+
+  padding: 15px;
+
+  border-radius: 12px;
+
+  border: none;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.save-btn {
+  background: #d4af37;
+  color: #111;
+  font-weight: bold;
+}
+
+.save-btn:hover {
+  background: #f1cc57;
+}
+
+.cancel-btn {
+  background: transparent;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+}
+
+.cancel-btn:hover {
+  background: #d4af37;
+  color: #111;
+}

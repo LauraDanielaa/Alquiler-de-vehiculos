@@ -1,21 +1,48 @@
-import "./reserva_reali_us.css";
+import "./mis_reservas.css";
 
 function Reservas() {
 
   return (
+
     <div className="reservation-container">
 
       {/* HEADER */}
 
       <header className="reservation-header">
 
-        <h1>
-          Reservar Vehículo
-        </h1>
+        {/* BOTON VOLVER */}
 
-        <p>
-          Completa la información para confirmar tu reserva.
-        </p>
+        <div className="header-left">
+
+          <button className="back-btn">
+            ← Volver
+          </button>
+
+        </div>
+
+        {/* TITULO */}
+
+        <div className="header-center">
+
+          <h1>
+            Reservar Vehículo
+          </h1>
+
+          <p>
+            Completa la información para confirmar tu reserva.
+          </p>
+
+        </div>
+
+        {/* PERFIL */}
+
+        <div className="header-right">
+
+          <div className="profile-circle">
+            A
+          </div>
+
+        </div>
 
       </header>
 
