@@ -11,12 +11,16 @@ El repositorio contiene los scripts SQL necesarios para la creación y configura
 # Requerimientos funcionales
 RF01 — Registro de clientes
 El sistema debe permitir registrar clientes con información personal, licencia de conducción y datos de contacto.
+
 RF02 — Consulta de vehículos disponibles
 El sistema debe permitir buscar vehículos disponibles según ubicación y fechas de reserva.
+
 RF03 — Registro de reservas
 El sistema debe permitir registrar reservas de vehículos indicando fecha de inicio y fecha final.
+
 RF04 — Gestión de pagos
 El sistema debe permitir registrar pagos asociados a un alquiler y consultar su estado.
+
 RF05 — Gestión de categorías de vehículos
 El sistema debe permitir registrar categorías como SUV, lujo, económico o camioneta.
 
