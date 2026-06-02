@@ -1,10 +1,10 @@
-# 💳 Transacciones — Sistema de Alquiler de Vehículos
+# Transacciones — Sistema de Alquiler de Vehículos
 
 Este archivo documenta las transacciones implementadas con **PL/pgSQL** para el sistema de alquiler de vehículos. Cada función garantiza **atomicidad**: si algo falla en medio de la operación, todos los cambios se revierten automáticamente.
 
 ---
 
-## 📋 Tabla de contenido
+## Tabla de contenido
 
 - [T1 — Registrar un pago](#t1--registrar-un-pago)
   - [¿Qué hace?](#qué-hace)
@@ -72,7 +72,7 @@ Los siguientes casos usan los datos de prueba incluidos en el script de creació
 
 ---
 
-### ✅ Caso 1 — Pago exitoso
+### Caso 1 — Pago exitoso
 
 Registrar un pago parcial válido para el alquiler activo.
 
@@ -89,7 +89,7 @@ El nuevo pago queda insertado en la tabla `pago` con estado `'Completado'` y un 
 
 ---
 
-### ❌ Caso 2 — Alquiler no existe
+### Caso 2 — Alquiler no existe
 
 Intentar pagar un alquiler con un ID que no existe en la base de datos.
 
@@ -106,7 +106,7 @@ Ningún registro es insertado. La transacción se revierte completamente.
 
 ---
 
-### ❌ Caso 3 — Alquiler no está activo
+### Caso 3 — Alquiler no está activo
 
 El alquiler `id=1` tiene estado `'Finalizado'`.
 
@@ -123,7 +123,7 @@ La función rechaza el pago antes de consultar montos o tocar la tabla `pago`.
 
 ---
 
-### ❌ Caso 4 — Monto supera el saldo pendiente
+### Caso 4 — Monto supera el saldo pendiente
 
 Intentar pagar más de lo que se debe en el alquiler `id=10`.
 
@@ -140,7 +140,7 @@ El pago no se registra. La atomicidad garantiza que no queda ningún rastro parc
 
 ---
 
-## 🗂️ Tablas involucradas
+## Tablas involucradas
 
 | Tabla      | Operación   | Descripción                                          |
 |------------|-------------|------------------------------------------------------|
@@ -160,10 +160,4 @@ calcular_total_alquiler(p_id_alquiler INTEGER) RETURNS NUMERIC
 
 Encargada de calcular el valor total del alquiler (generalmente `precio_dia × días`).
 
----
 
-## 📌 Notas técnicas
-
-- `id_pago` se genera automáticamente mediante una secuencia `SERIAL`. No se pasa como parámetro.
-- Solo los pagos con `estado = 'Completado'` se cuentan como saldo pagado. Los pagos `'Pendiente'` no reducen el saldo.
-- El bloque `EXCEPTION WHEN OTHERS THEN RAISE` re-lanza el error original sin suprimirlo, preservando el mensaje descriptivo para el cliente.
