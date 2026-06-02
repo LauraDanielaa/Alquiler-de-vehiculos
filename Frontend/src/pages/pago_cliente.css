@@ -1,0 +1,301 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0f0f0f;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.payments-container {
+  width: 100%;
+  min-height: 100vh;
+
+  background: #0f0f0f;
+
+  color: white;
+}
+
+/* ================= HEADER ================= */
+
+.top-header {
+  width: 100%;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 22px 8%;
+
+  background: rgba(0,0,0,0.75);
+
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(212,175,55,0.08);
+}
+
+.back-button {
+  color: #d4af37;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.logo {
+  color: #d4af37;
+
+  font-size: 28px;
+}
+
+.profile-circle {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  background: #d4af37;
+
+  color: #111;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: bold;
+}
+
+/* ================= HERO ================= */
+
+.hero-section {
+  width: 100%;
+  height: 45vh;
+
+  position: relative;
+
+  background-image: url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0,0,0,0.72);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 65px;
+
+  margin-bottom: 18px;
+}
+
+.hero-content p {
+  font-size: 20px;
+
+  color: #d8d8d8;
+}
+
+/* ================= PAYMENTS ================= */
+
+.payments-section {
+  width: 100%;
+
+  padding: 80px 8%;
+}
+
+.payments-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(350px,1fr));
+
+  gap: 35px;
+}
+
+/* ================= CARD ================= */
+
+.payment-card {
+  background: #181818;
+
+  border-radius: 28px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(212,175,55,0.08);
+
+  box-shadow:
+    0 0 18px rgba(212,175,55,0.05),
+    0 10px 35px rgba(0,0,0,0.5);
+
+  transition: 0.3s;
+}
+
+.payment-card:hover {
+  transform: translateY(-5px);
+}
+
+.payment-card img {
+  width: 100%;
+  height: 260px;
+
+  object-fit: cover;
+}
+
+.payment-content {
+  padding: 28px;
+}
+
+.payment-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.category {
+  background: rgba(212,175,55,0.15);
+
+  color: #d4af37;
+
+  padding: 8px 16px;
+
+  border-radius: 30px;
+
+  font-size: 14px;
+
+  font-weight: bold;
+}
+
+.status-paid {
+  color: #58d26a;
+
+  font-weight: bold;
+}
+
+.status-pending {
+  color: #ff6363;
+
+  font-weight: bold;
+}
+
+.payment-content h2 {
+  font-size: 30px;
+
+  margin-bottom: 25px;
+}
+
+/* ================= INFO ================= */
+
+.payment-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
+
+  margin-bottom: 28px;
+}
+
+.payment-info div {
+  background: #222;
+
+  padding: 16px;
+
+  border-radius: 14px;
+}
+
+.payment-info strong {
+  display: block;
+
+  color: #d4af37;
+
+  margin-bottom: 8px;
+}
+
+.payment-info span {
+  color: #e0e0e0;
+}
+
+.gold-text {
+  color: #d4af37 !important;
+
+  font-weight: bold;
+}
+
+/* ================= BUTTON ================= */
+
+.details-btn {
+  width: 100%;
+
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: #d4af37;
+
+  color: #111;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.details-btn:hover {
+  background: #f1cc57;
+
+  transform: translateY(-2px);
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+  width: 100%;
+
+  padding: 35px;
+
+  text-align: center;
+
+  background: #151515;
+
+  border-top: 1px solid rgba(212,175,55,0.08);
+}
+
+.footer p {
+  color: #d0d0d0;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+  .hero-content h1 {
+    font-size: 45px;
+  }
+
+}

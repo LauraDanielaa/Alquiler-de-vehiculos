@@ -1,7 +1,8 @@
 import "./mis_reservas.css";
+import { Link, useNavigate } from "react-router-dom";
 
 function Reservas() {
-
+  const navigate = useNavigate();
   return (
 
     <div className="reservation-container">
@@ -14,7 +15,7 @@ function Reservas() {
 
         <div className="header-left">
 
-          <button className="back-btn">
+          <button onClick={() => navigate("/principal_cliente")} className="back-btn">
             ← Volver
           </button>
 
@@ -39,7 +40,7 @@ function Reservas() {
         <div className="header-right">
 
           <div className="profile-circle">
-            A
+            Usuario
           </div>
 
         </div>

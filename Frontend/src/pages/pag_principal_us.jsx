@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./pag_principal_us.css";
 
 function Home() {
-
+  const navigate = useNavigate();
   const carros = [
     {
       id: 1,
@@ -128,10 +129,17 @@ function Home() {
         </div>
 
         <nav>
-          <a href="#">Mis reservas</a>
-          <a href="#">Mis alquileres</a>
-          <a href="#">Pagos realizados</a>
-          <a href="#">Mi perfil</a>
+          <a onClick={() => navigate("/mis_reservas")} style={{ cursor: "pointer" }}>
+            Mis reservas
+          </a>
+
+          <a onClick={() => navigate("/mis_alquileres")} style={{ cursor: "pointer" }}>
+            Mis alquileres
+          </a>
+
+          <a onClick={() => navigate("/historial_pagos")} style={{ cursor: "pointer" }}>
+            Pagos realizados
+          </a>
         </nav>
 
       </header>

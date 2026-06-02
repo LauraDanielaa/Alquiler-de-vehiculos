@@ -23,12 +23,17 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         Usuario usuario = usuarioRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado: " + username));
 
-        String rol = switch (usuario) {
-            case Administrador a       -> "ROLE_ADMIN";
-            case Empleado e    -> "ROLE_EMPLEADO";
-            case Cliente c     -> "ROLE_CLIENTE";
-            default            -> throw new UsernameNotFoundException("Rol no reconocido");
-        };
+       String rol;
+
+        if (usuario instanceof Administrador) {
+            rol = "ADMIN";
+        } else if (usuario instanceof Empleado) {
+            rol = "EMPLEADO";
+        } else if (usuario instanceof Cliente) {
+            rol = "CLIENTE";
+        } else {
+            throw new RuntimeException("Rol no válido");
+        }
 
         return User.builder()
                 .username(usuario.getUsername())

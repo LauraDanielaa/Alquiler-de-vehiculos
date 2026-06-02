@@ -56,12 +56,17 @@ public class AuthService {
         Usuario usuario = usuarioRepository.findByUsername(request.getUsername())
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
 
-        String rol = switch (usuario) {
-            case Administrador a -> "ADMIN";
-            case Empleado e      -> "EMPLEADO";
-            case Cliente c       -> "CLIENTE";
-            default -> throw new RuntimeException("Rol no reconocido");
-        };
+        String rol;
+
+            if (usuario instanceof Administrador) {
+                rol = "ADMIN";
+            } else if (usuario instanceof Empleado) {
+                rol = "EMPLEADO";
+            } else if (usuario instanceof Cliente) {
+                rol = "CLIENTE";
+            } else {
+                throw new RuntimeException("Rol no reconocido");
+            }
 
         String token = jwtUtil.generateToken(usuario.getUsername(), rol);
         return new AuthResponse(token, rol, usuario.getUsername(),

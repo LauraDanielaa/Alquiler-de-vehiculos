@@ -123,7 +123,7 @@ function Misalquileres() {
         <div className="hero-content">
 
           <h1>
-            Mis Reservas
+            Mis alquileres
           </h1>
 
           <p>
