@@ -64,7 +64,7 @@ registrar_pago(id_alquiler, monto, metodo_pago)
 
 ---
 
-## 🧪 Ejemplos de prueba
+## Ejemplos de prueba
 
 Los siguientes casos usan los datos de prueba incluidos en el script de creación.
 
@@ -150,7 +150,7 @@ El pago no se registra. La atomicidad garantiza que no queda ningún rastro parc
 
 ---
 
-## ⚙️ Dependencias
+## Dependencias
 
 Esta función requiere que exista previamente la función:
 
